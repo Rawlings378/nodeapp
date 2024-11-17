@@ -4,7 +4,7 @@ const bcrypt = require(`bcryptjs`)
 
 
 exports.register = (req, res)=>{
-    const {patient_id, firstname, lastname, phone, email, address, gender, date_of_birth, password, passwordconfirm} = req.body;
+    const {patient_id, firstname, lastname, phone, email, address, gender, date_of_birth, password, passwordconfirm, status} = req.body;
 // console.log(req.body);
   
     db.query(`select email from patients where email = ?`, [email], async (err, result)=>{
@@ -34,7 +34,7 @@ exports.register = (req, res)=>{
             })
         }
         const hashedpassword = await bcrypt.hash(password, 8)
-        db.query(`insert into patients set ?`, {firstname:firstname, lastname:lastname, email:email, phone:phone, address:address,gender:gender,date_of_birth:date_of_birth, password:hashedpassword},(err, result)=>{
+        db.query(`insert into patients set ?`, {firstname:firstname, lastname:lastname, email:email, phone:phone, address:address,gender:gender,date_of_birth:date_of_birth, password:hashedpassword, status:status},(err, result)=>{
             if(err){
                 console.log(err);
                 

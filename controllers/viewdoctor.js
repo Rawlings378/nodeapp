@@ -30,12 +30,12 @@ exports.find = (req, res)=>{
 
 
 exports.viewpatient = (req, res)=>{
-    db.query(`select patient_id, firstname, lastname, email, gender, address, phone from patients`, (err, rows)=>{
+    db.query(`select patient_id, firstname, lastname, email, gender, status, phone from patients where status = 'active'`, (err, rows)=>{
         if(err){
             console.log(err);
             
         }else{
-            res.status(200).render(`viewpatient`, {rows})
+            res.status(200).render(`viewpatient`,{rows})
         }
     })
 }
@@ -83,7 +83,7 @@ exports.update = (req, res)=>{
             return res.redirect(`/viewpatient`)
             
         }else{
-            db.query(`select patient_id, firstname, lastname, email, gender, address, phone from patients`, (err, rows)=>{
+            db.query(`select patient_id, firstname, lastname, email, gender, address, phone from patients where status = 'active' `, (err, rows)=>{
                 if(err){
                     console.log(err);
                     
