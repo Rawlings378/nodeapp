@@ -25,6 +25,6 @@ app.set(`view engine`, `hbs`)
 app.use(express.static(`public`))
 app.use(express.static(`public/images`))
 app.listen(port,()=>{
-    console.log(`server connected to ${port}`);
+    console.log(`server connected to  port ${port}`);
     
 })

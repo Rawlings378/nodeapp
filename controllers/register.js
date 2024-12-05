@@ -50,18 +50,18 @@ exports.register = (req, res)=>{
 
 
 exports.doctorregister = (req, res)=>{
-    // firstname
-    // lastname:                            
-    // email: 
-    // phone: 
-    // address: 
-    // date_of_birth: 
-    // gender: 
-    // password: 
-    // passwordconfirm:
+     firstname
+     lastname                            
+     email
+     phone
+     address 
+     date_of_birth
+     gender
+     password
+     passwordconfirm
 
-    // {{!-- firstname, lastname, specialty, date_of_birth, email, phone, gender, password, date_joined, address, status --}}
-    // console.log(req.body);
+     {{ firstname, lastname, specialty, date_of_birth, email, phone, gender, password, date_joined, address, status --}}
+     console.log(req.body);
     const {firstname, lastname, email, phone, date_of_birth, address, password, gender, passwordconfirm, date_joined, status, specialty,} = req.body;
 
     if (!email || !phone || !firstname){
